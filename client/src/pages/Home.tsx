@@ -1,25 +1,41 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+/*
+ * Design: Midnight Forge — Industrial Minimalism
+ * Home Page: Full single-page portfolio for Next Level Digital, LLC
+ * Sections: Navbar → Hero → About → Portfolio → Contact → Footer
  */
+import { useState } from 'react';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import PortfolioSection from '@/components/PortfolioSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
+import SignupModal from '@/components/SignupModal';
+import { type Product } from '@/lib/products';
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
+  const handleCtaClick = (product: Product) => {
+    setSelectedProduct(product);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-[#0b1120]">
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <PortfolioSection onCtaClick={handleCtaClick} />
+      <ContactSection />
+      <Footer />
+
+      {/* Product Signup Modal */}
+      {selectedProduct && (
+        <SignupModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </div>
   );
 }
