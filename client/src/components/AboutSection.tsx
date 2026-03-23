@@ -1,6 +1,7 @@
 /*
  * Design: Midnight Forge — Industrial Minimalism
- * About: Colorado mountain background, founder story, split layout
+ * About: Commanding, authoritative company story — results-driven prose
+ * Right column: original sidebar info cards (Colorado Born, Self-Taught, AI-First, 9 Products)
  */
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -26,50 +27,63 @@ export default function AboutSection() {
           }`}
         >
           <span className="font-mono text-[#00d4ff] text-xs tracking-[0.3em] uppercase">
-            The Story
+            The Company
           </span>
         </div>
 
         <h2
-          className={`font-sans font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-12 transition-all duration-700 delay-100 ${
+          className={`font-sans font-extrabold text-3xl sm:text-4xl md:text-5xl text-white mb-5 tracking-tight transition-all duration-700 delay-100 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          Built by a Builder
+          We Don't Wait. We Build.
         </h2>
 
+        {/* Thin cyan accent line */}
+        <div
+          className={`w-24 h-[2px] bg-gradient-to-r from-[#00d4ff] to-transparent mb-12 transition-all duration-700 delay-150 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+          }`}
+        />
+
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Story */}
+          {/* Left: Commanding prose */}
           <div
             className={`space-y-6 transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <p className="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed">
-              James Malocsay is a Colorado native, outdoorsman, and serial entrepreneur who
-              doesn't wait for permission to build. While working full-time as an HVAC/R
-              technician, he taught himself product design and software engineering — then
-              started shipping.
+            <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
+              Next Level Digital, LLC exists for one reason: to ship products that solve real problems,
+              faster than anyone expects and with more precision than the market demands. Founded in
+              Colorado and operating at the intersection of artificial intelligence and consumer technology,
+              this company has produced{' '}
+              <span className="text-white font-semibold">nine distinct digital products in under two years</span>{' '}
+              — each one engineered to outperform, outthink, and outlast the competition.
             </p>
-            <p className="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed">
-              In under two years, James has designed, developed, and launched{' '}
-              <span className="text-white font-medium">9 AI-powered digital products</span>{' '}
-              spanning outdoor safety, contractor tools, personal development, social gaming,
-              and AI entertainment — all as a solo founder.
+            <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
+              The portfolio spans outdoor safety, contractor intelligence, personal development,
+              social gaming, consumer protection, and AI entertainment. These are not prototypes
+              collecting dust on a whiteboard. They are functional, designed, and moving toward market.
+              Three are already live or in beta. The rest are built and queued for deployment.
+              That is not a roadmap — it is a track record.
             </p>
-            <p className="font-body text-[#94a3b8] text-base sm:text-lg leading-relaxed">
-              Next Level Digital, LLC isn't backed by venture capital or built by a team of 50.
-              It's one person with a vision, a relentless work ethic, and the belief that
-              technology should solve real problems for real people.
+            <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
+              Where most companies spend years raising capital, assembling committees, and debating
+              strategy, Next Level Digital was already shipping. Identify the problem. Architect the
+              solution. Leverage AI to accelerate every layer of development. Put the product in
+              people's hands. No bureaucracy. No committees. No excuses.{' '}
+              <span className="text-white font-semibold">Just results.</span>
             </p>
           </div>
 
-          {/* Right: Key Facts */}
+          {/* Right: Original sidebar info cards */}
           <div
             className={`space-y-6 transition-all duration-700 delay-400 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
+            {/* Colorado Born & Built */}
             <div className="glass-card rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-md bg-[#00d4ff]/10 flex items-center justify-center shrink-0 mt-1">
@@ -79,7 +93,7 @@ export default function AboutSection() {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-sans font-semibold text-white text-base mb-1">Colorado Born & Built</h3>
+                  <h3 className="font-sans font-semibold text-white text-base mb-1">Colorado Born &amp; Built</h3>
                   <p className="font-body text-[#94a3b8] text-sm leading-relaxed">
                     Based in Keenesburg, CO — drawing inspiration from the mountains, trails, and
                     the rugged independence of the West.
@@ -88,6 +102,7 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* Self-Taught Engineer */}
             <div className="glass-card rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-md bg-[#00d4ff]/10 flex items-center justify-center shrink-0 mt-1">
@@ -105,6 +120,7 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* AI-First Philosophy */}
             <div className="glass-card rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-md bg-[#00d4ff]/10 flex items-center justify-center shrink-0 mt-1">
@@ -122,6 +138,7 @@ export default function AboutSection() {
               </div>
             </div>
 
+            {/* 9 Products in 2 Years */}
             <div className="glass-card rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-md bg-[#00d4ff]/10 flex items-center justify-center shrink-0 mt-1">

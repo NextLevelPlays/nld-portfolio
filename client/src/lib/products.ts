@@ -8,6 +8,7 @@ export interface Product {
   statusType: 'live' | 'dev' | 'complete' | 'concept' | 'beta';
   cta: string;
   hasTimer: boolean;
+  hasBetaTimer?: boolean;
   featured: boolean;
 }
 
@@ -34,6 +35,7 @@ export const products: Product[] = [
     statusType: 'live',
     cta: 'Try Project Pro',
     hasTimer: false,
+    hasBetaTimer: true,
     featured: true,
   },
   {

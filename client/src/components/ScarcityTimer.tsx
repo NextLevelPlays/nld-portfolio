@@ -1,12 +1,13 @@
 /*
  * Design: Midnight Forge — Industrial Minimalism
- * Scarcity Timer: Digital LED-style countdown with urgency amber glow
+ * Scarcity Timer: Digital LED-style countdown with urgency glow
+ * Variant "earlyaccess" — amber glow (HIKED, My Guide AI)
+ * Variant "beta"        — cyan/green glow (Project Pro beta offer)
  * Not tied to a specific date — rolling 72-hour window from first visit
  */
 import { useState, useEffect } from 'react';
 
-function getEndTime(): number {
-  const key = 'nld_timer_end';
+function getEndTime(key: string): number {
   const stored = localStorage.getItem(key);
   if (stored) {
     const val = parseInt(stored, 10);
@@ -35,8 +36,13 @@ function calcTimeLeft(endTime: number): TimeLeft {
   };
 }
 
-export default function ScarcityTimer() {
-  const [endTime] = useState(getEndTime);
+interface ScarcityTimerProps {
+  variant?: 'earlyaccess' | 'beta';
+}
+
+export default function ScarcityTimer({ variant = 'earlyaccess' }: ScarcityTimerProps) {
+  const storageKey = variant === 'beta' ? 'nld_beta_timer_end' : 'nld_timer_end';
+  const [endTime] = useState(() => getEndTime(storageKey));
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calcTimeLeft(endTime));
 
   useEffect(() => {
@@ -48,10 +54,29 @@ export default function ScarcityTimer() {
 
   const pad = (n: number) => n.toString().padStart(2, '0');
 
+  const isBeta = variant === 'beta';
+
+  // Color tokens per variant
+  const accentColor = isBeta ? '#22c55e' : '#ff9100';
+  const bgOpacity = isBeta ? 'bg-[#22c55e]/8' : 'bg-[#ff9100]/8';
+  const borderOpacity = isBeta ? 'border-[#22c55e]/20' : 'border-[#ff9100]/20';
+  const labelStyle = isBeta
+    ? 'text-[#22c55e]'
+    : 'text-[#ff9100]';
+  const subLabelStyle = isBeta
+    ? 'text-[#22c55e]/60'
+    : 'text-[#ff9100]/60';
+  const separatorStyle = isBeta
+    ? 'text-[#22c55e]/40'
+    : 'text-[#ff9100]/40';
+  const label = isBeta ? 'Special Beta Offer — Pricing Closes Soon' : 'Early Access Pricing Closes Soon';
+
   return (
-    <div className="mt-4 p-3 rounded-md bg-[#ff9100]/8 border border-[#ff9100]/20">
-      <p className="font-mono text-[#ff9100] text-[10px] sm:text-xs tracking-wider uppercase mb-2 text-center">
-        Early Access Pricing Closes Soon
+    <div className={`mt-4 p-3 rounded-md ${bgOpacity} border ${borderOpacity}`}>
+      <p
+        className={`font-mono ${labelStyle} text-[10px] sm:text-xs tracking-wider uppercase mb-2 text-center`}
+      >
+        {label}
       </p>
       <div className="flex items-center justify-center gap-2 sm:gap-3">
         {[
@@ -62,15 +87,18 @@ export default function ScarcityTimer() {
         ].map((unit, i) => (
           <div key={unit.label} className="flex items-center gap-2 sm:gap-3">
             <div className="text-center">
-              <div className="font-mono text-white text-lg sm:text-xl font-bold bg-[#0b1120]/80 rounded px-2 py-1 min-w-[2.5rem] tabular-nums">
+              <div
+                className="font-mono text-white text-lg sm:text-xl font-bold bg-[#0b1120]/80 rounded px-2 py-1 min-w-[2.5rem] tabular-nums"
+                style={{ borderBottom: `1px solid ${accentColor}30` }}
+              >
                 {unit.value}
               </div>
-              <div className="font-body text-[#ff9100]/60 text-[9px] mt-1 uppercase tracking-wider">
+              <div className={`font-body ${subLabelStyle} text-[9px] mt-1 uppercase tracking-wider`}>
                 {unit.label}
               </div>
             </div>
             {i < 3 && (
-              <span className="text-[#ff9100]/40 font-mono text-lg font-bold -mt-4">:</span>
+              <span className={`${separatorStyle} font-mono text-lg font-bold -mt-4`}>:</span>
             )}
           </div>
         ))}

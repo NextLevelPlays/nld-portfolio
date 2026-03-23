@@ -77,14 +77,17 @@ export default function ProductCard({ product, index, onCtaClick }: ProductCardP
         {product.description}
       </p>
 
-      {/* Scarcity Timer */}
-      {product.hasTimer && <ScarcityTimer />}
+      {/* Scarcity Timer — Early Access (amber) */}
+      {product.hasTimer && <ScarcityTimer variant="earlyaccess" />}
+
+      {/* Beta Offer Timer — Special Beta Pricing (green) */}
+      {product.hasBetaTimer && <ScarcityTimer variant="beta" />}
 
       {/* CTA Button */}
       <button
         onClick={() => onCtaClick(product)}
         className={`mt-4 w-full py-3 rounded-md text-sm font-sans font-semibold transition-all duration-300 ${
-          product.hasTimer
+          product.hasTimer || product.hasBetaTimer
             ? 'btn-cyan'
             : product.statusType === 'live'
             ? 'btn-cyan'
