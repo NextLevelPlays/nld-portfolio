@@ -6,7 +6,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const NLD_LOGO = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663152740364/MiQBYzbv8KT7fLJyBs7oEx/nld_logo_8366c00c.jpg';
+const NLD_LOGO = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663152740364/MiQBYzbv8KT7fLJyBs7oEx/nld_logo_transparent_7bfd26fc.png';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -39,7 +39,7 @@ export default function Navbar() {
             <img
               src={NLD_LOGO}
               alt="Next Level Digital"
-              className="h-9 sm:h-11 w-auto rounded-md"
+              className="h-12 sm:h-14 w-auto"
             />
             <div className="hidden sm:block">
               <span className="text-white font-sans font-bold text-base tracking-wide">

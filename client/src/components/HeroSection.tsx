@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const HERO_BG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663152740364/MiQBYzbv8KT7fLJyBs7oEx/hero_bg-ZbzRqgcUUVNZ95yNHoHPhc.webp';
-const NLD_LOGO = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663152740364/MiQBYzbv8KT7fLJyBs7oEx/nld_logo_8366c00c.jpg';
+const NLD_LOGO = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663152740364/MiQBYzbv8KT7fLJyBs7oEx/nld_logo_transparent_7bfd26fc.png';
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -39,7 +39,7 @@ export default function HeroSection() {
           <img
             src={NLD_LOGO}
             alt="Next Level Digital, LLC"
-            className="h-20 sm:h-28 w-auto mx-auto rounded-lg shadow-2xl shadow-[#00d4ff]/10"
+            className="h-36 sm:h-52 md:h-60 w-auto mx-auto drop-shadow-[0_0_30px_rgba(0,212,255,0.18)]"
           />
         </div>
 
