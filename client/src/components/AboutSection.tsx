@@ -36,7 +36,7 @@ export default function AboutSection() {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          We Don't Wait. We Build.
+          About Us
         </h2>
 
         {/* Thin cyan accent line */}
@@ -47,33 +47,26 @@ export default function AboutSection() {
         />
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Commanding prose */}
+          {/* Left: Boss's verbatim copy */}
           <div
             className={`space-y-6 transition-all duration-700 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
             <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
-              Next Level Digital, LLC exists for one reason: to ship products that solve real problems,
-              faster than anyone expects and with more precision than the market demands. Founded in
-              Colorado and operating at the intersection of artificial intelligence and consumer technology,
-              this company has produced{' '}
-              <span className="text-white font-semibold">nine distinct digital products in under two years</span>{' '}
-              — each one engineered to outperform, outthink, and outlast the competition.
+              At Next Level Digital, we bridge the gap between hands-on technical expertise and modern digital innovation.
             </p>
             <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
-              The portfolio spans outdoor safety, contractor intelligence, personal development,
-              social gaming, consumer protection, and AI entertainment. These are not prototypes
-              collecting dust on a whiteboard. They are functional, designed, and moving toward market.
-              Three are already live or in beta. The rest are built and queued for deployment.
-              That is not a roadmap — it is a track record.
+              Founded by a professional with a background in HVAC/R and a growing focus in software engineering and product design, our approach is grounded in real-world problem solving. We understand systems not just from theory, but from the field—how they're built, how they fail, and how they can be improved.
             </p>
             <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
-              Where most companies spend years raising capital, assembling committees, and debating
-              strategy, Next Level Digital was already shipping. Identify the problem. Architect the
-              solution. Leverage AI to accelerate every layer of development. Put the product in
-              people's hands. No bureaucracy. No committees. No excuses.{' '}
-              <span className="text-white font-semibold">Just results.</span>
+              Our work centers on creating smarter, more efficient digital solutions that reflect practical experience. Whether it's developing tools, optimizing workflows, or building products from the ground up, we focus on functionality first—then refine for performance, usability, and scale.
+            </p>
+            <p className="font-body text-white text-base sm:text-lg leading-relaxed font-semibold">
+              We don't chase trends. We build things that work.
+            </p>
+            <p className="font-body text-[#c8d6e5] text-base sm:text-lg leading-relaxed">
+              As technology continues to reshape industries, our mission is to help businesses and individuals operate at a higher level by combining technical skill, logical thinking, and a relentless focus on improvement.
             </p>
           </div>
 
